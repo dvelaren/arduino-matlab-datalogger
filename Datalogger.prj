@@ -1,0 +1,104 @@
+<deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
+  <configuration build-checksum="923729435" file="C:\Users\dvelas25\Google Drive\Doctorate_David V\Teaching\Software\arduino-matlab\Datalogger.prj" location="C:\Users\dvelas25\Google Drive\Doctorate_David V\Teaching\Software\arduino-matlab" name="Datalogger" preferred-package-location="C:\Users\dvelas25\Google Drive\Doctorate_David V\Teaching\Software\arduino-matlab\Datalogger\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+    <param.appname>Datalogger</param.appname>
+    <param.icon>${PROJECT_ROOT}\Datalogger_resources\icon.ico</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\Datalogger_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\Datalogger_resources\icon_32.png</file>
+      <file>${PROJECT_ROOT}\Datalogger_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\Datalogger_resources\icon_16.png</file>
+    </param.icons>
+    <param.version>1.0</param.version>
+    <param.authnamewatermark>David Velasquez</param.authnamewatermark>
+    <param.email>dvelas25@eafit.edu.co</param.email>
+    <param.company>Universidad EAFIT</param.company>
+    <param.summary>Real time application used to inject set-point and acquire system response graphically with option to export it on a .xls file</param.summary>
+    <param.description>Datalogger application is capable of stablishing a synchronous serial communication with embedded system. Thorugh this communication protocol, Datalogger injects a desired Setpoint to the system and acquires the system response. This response is shown graphically and also can be exported as a spreadsheet file (.xls)</param.description>
+    <param.screenshot>C:\Users\dvelas25\Desktop\Datalogger Logo\Datalogger LogoBig-01.png</param.screenshot>
+    <param.guid />
+    <param.installpath.string>\Universidad EAFIT\Datalogger\</param.installpath.string>
+    <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
+    <param.logo />
+    <param.install.notes>Download arduino code in order to use it with Datalogger (page needs to be added)</param.install.notes>
+    <param.target.install.notes />
+    <param.intermediate>${PROJECT_ROOT}\Datalogger\for_testing</param.intermediate>
+    <param.files.only>${PROJECT_ROOT}\Datalogger\for_redistribution_files_only</param.files.only>
+    <param.output>${PROJECT_ROOT}\Datalogger\for_redistribution</param.output>
+    <param.logdir>${PROJECT_ROOT}\Datalogger</param.logdir>
+    <param.enable.clean.build>false</param.enable.clean.build>
+    <param.user.defined.mcr.options />
+    <param.target.type>subtarget.standalone</param.target.type>
+    <param.support.packages />
+    <param.web.mcr>true</param.web.mcr>
+    <param.package.mcr>false</param.package.mcr>
+    <param.no.mcr>false</param.no.mcr>
+    <param.web.mcr.name>DataloggerInstaller_web</param.web.mcr.name>
+    <param.package.mcr.name>MyAppInstaller_mcr</param.package.mcr.name>
+    <param.no.mcr.name>MyAppInstaller_app</param.no.mcr.name>
+    <param.windows.command.prompt>true</param.windows.command.prompt>
+    <param.create.log>false</param.create.log>
+    <param.log.file />
+    <unset>
+      <param.version />
+      <param.guid />
+      <param.installpath.string />
+      <param.installpath.combo />
+      <param.logo />
+      <param.target.install.notes />
+      <param.intermediate />
+      <param.files.only />
+      <param.output />
+      <param.logdir />
+      <param.enable.clean.build />
+      <param.user.defined.mcr.options />
+      <param.target.type />
+      <param.support.packages />
+      <param.web.mcr />
+      <param.package.mcr />
+      <param.no.mcr />
+      <param.package.mcr.name />
+      <param.no.mcr.name />
+      <param.windows.command.prompt />
+      <param.create.log />
+      <param.log.file />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\arduinoMatlabGUI.m</file>
+    </fileset.main>
+    <fileset.resources />
+    <fileset.package />
+    <fileset.depfun />
+    <build-deliverables>
+      <file location="${PROJECT_ROOT}\Datalogger\for_testing" name="readme.txt" optional="true">C:\Users\dvelas25\Google Drive\Doctorate_David V\Teaching\Software\arduino-matlab\Datalogger\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\Datalogger\for_testing" name="splash.png" optional="false">C:\Users\dvelas25\Google Drive\Doctorate_David V\Teaching\Software\arduino-matlab\Datalogger\for_testing\splash.png</file>
+      <file location="${PROJECT_ROOT}\Datalogger\for_testing" name="Datalogger.exe" optional="false">C:\Users\dvelas25\Google Drive\Doctorate_David V\Teaching\Software\arduino-matlab\Datalogger\for_testing\Datalogger.exe</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2017a</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>6.2</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
