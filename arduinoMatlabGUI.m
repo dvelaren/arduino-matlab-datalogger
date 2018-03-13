@@ -372,6 +372,9 @@ function btnExport_Callback(hObject, eventdata, handles)
 try
     T = table(handles.dataT',handles.dataSP',handles.dataY','VariableNames',{'Time','SP','Y'});
     filename = strcat(pwd,filesep,'DataAcquisition.xlsx');
+    [FileName,PathName] = uiputfile('DataAcquisition.xlsx');
+    filename = strcat(PathName,FileName);
+    %filename = 'DataAcquisition.xlsx'
     if exist(filename, 'file')==2
       delete(filename);
     end

@@ -3,7 +3,7 @@ MATLAB Compiler
 1. Prerequisites for Deployment 
 
 . Verify the MATLAB Runtime is installed and ensure you    
-  have installed version 9.2 (R2017a).   
+  have installed version 9.1 (R2016b).   
 
 . If the MATLAB Runtime is not installed, do the following:
   (1) enter
@@ -15,7 +15,7 @@ MATLAB Compiler
 
   (2) run the MATLAB Runtime installer.
 
-Or download the Windows 64-bit version of the MATLAB Runtime for R2017a 
+Or download the Macintosh version of the MATLAB Runtime for R2016b 
 from the MathWorks Web site by navigating to
 
    http://www.mathworks.com/products/compiler/mcr/index.html
@@ -33,11 +33,35 @@ NOTE: You will need administrator rights to run MCRInstaller.
 
 Files to package for Standalone 
 ================================
--Datalogger.exe
--MCRInstaller.exe 
+-run_Datalogger.sh (shell script for temporarily setting environment variables and 
+ executing the application)
+   -to run the shell script, type
+   
+       ./run_Datalogger.sh <mcr_directory> <argument_list>
+       
+    at Linux or Mac command prompt. <mcr_directory> is the directory 
+    where version 9.1 of the MATLAB Runtime is installed or the directory where 
+    MATLAB is installed on the machine. <argument_list> is all the 
+    arguments you want to pass to your application. For example, 
+
+    If you have version 9.1 of the MATLAB Runtime installed in 
+    /mathworks/home/application/v91, run the shell script as:
+    
+       ./run_Datalogger.sh /mathworks/home/application/v91
+       
+    If you have MATLAB installed in /mathworks/devel/application/matlab, 
+    run the shell script as:
+    
+       ./run_Datalogger.sh /mathworks/devel/application/matlab
+-MCRInstaller.zip 
    -if end users are unable to download the MATLAB Runtime using the above  
     link, include it when building your component by clicking 
     the "Runtime downloaded from web" link in the Deployment Tool
+-The Macintosh bundle directory structure Datalogger.app 
+   -this can be gathered up using the zip command 
+    zip -r Datalogger.zip Datalogger.app
+    or the tar command 
+    tar -cvf Datalogger.tar Datalogger.app
 -This readme file 
 
 3. Definitions
@@ -49,6 +73,48 @@ Deployment Product Terms in the MathWorks Documentation
 Center.
 
 
+4. Appendix 
+
+A. Mac systems:
+In the following directions, replace MCR_ROOT by the directory where the MATLAB Runtime 
+   is installed on the target machine.
+
+If the environment variable DYLD_LIBRARY_PATH is undefined, set it to the concatenation 
+   of the following strings:
+
+    MCR_ROOT/v91/runtime/maci64:
+    MCR_ROOT/v91/sys/os/maci64:
+    MCR_ROOT/v91/bin/maci64
+
+If it is defined, set it to the concatenation of these strings:
+
+    ${LD_LIBRARY_PATH}: 
+    MCR_ROOT/v91/runtime/maci64:
+    MCR_ROOT/v91/sys/os/maci64:
+    MCR_ROOT/v91/bin/maci64
+
+   For more detail information about setting the MATLAB Runtime paths, see Package and 
+   Distribute in the MATLAB Compiler documentation in the MathWorks Documentation Center.
+
+
+     
+        NOTE: To make these changes persistent after logout on Linux 
+              or Mac machines, modify the .cshrc file to include this  
+              setenv command.
+        NOTE: The environment variable syntax utilizes forward 
+              slashes (/), delimited by colons (:).  
+        NOTE: When deploying standalone applications, it is possible 
+              to run the shell script file run_Datalogger.sh 
+              instead of setting environment variables. See 
+              section 2 "Files to Deploy and Package".    
+
+
+
+5. Launching of application using Macintosh finder.
+
+If the application is purely graphical, that is, it doesn't read from standard in or 
+write to standard out or standard error, it may be launched in the finder just like any 
+other Macintosh application.
 
 
 

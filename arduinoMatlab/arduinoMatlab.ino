@@ -1,6 +1,6 @@
 //I/O pin labeling
-#define LDR 0
-#define LPWM 13
+#define SENSORPIN 0
+#define ACTUATORPIN 13
 
 //Constant definitions
 const unsigned int NUMREADS = 12;  //Samples to average for smoothing
@@ -17,7 +17,7 @@ unsigned int total = 0;
 //Subroutines and functions
 unsigned int smooth() { //Recursive moving average subroutine
   total = total - readings[readIndex]; // subtract the last reading
-  readings[readIndex] = analogRead(LDR); // read from the sensor:
+  readings[readIndex] = analogRead(SENSORPIN); // read from the sensor:
   total = total + readings[readIndex]; // add the reading to the total:
   readIndex = readIndex + 1; // advance to the next position in the array:
   if (readIndex >= NUMREADS) {// if we're at the end of the array...
@@ -28,8 +28,8 @@ unsigned int smooth() { //Recursive moving average subroutine
 
 //Configuration
 void setup() {
-  pinMode(LPWM, OUTPUT);
-  digitalWrite(LPWM, LOW);
+  pinMode(ACTUATORPIN, OUTPUT);
+  digitalWrite(ACTUATORPIN, LOW);
   Serial.begin(9600);
 }
 
@@ -40,7 +40,7 @@ void loop() {
     sp = readBuffer.toInt();
     readBuffer = "";    
     Serial.flush();
-    analogWrite(LPWM, sp * 255.0 / 1023.0);
+    analogWrite(ACTUATORPIN, sp * 255.0 / 1023.0);
     Serial.println(val);
   }
 }
